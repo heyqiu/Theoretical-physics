@@ -1,0 +1,325 @@
+\chapter{Formalism}
+\section{Hilbert Space}
+Contructs:
+\begin{itemize}
+	\item state: wave function
+	\item observables: operators
+	\item vectors: defining conditions
+	\item linear transformation: the operators act on vectors
+	\item linear algebra: the natural language of Quantum Mechanics
+\end{itemize} 
+Properties:
+\begin{enumerate}
+	\item wave function live in
+	\item complete inner product space
+	\item squre-integrable
+\end{enumerate}
+\begin{dfn}
+	Inner product of two function 
+	\[ 
+	\langle f|g \rangle \equiv \int_a^b f(x)^*g(x) {\rm d}x
+	\]
+\end{dfn}
+Discussion:
+\begin{itemize}
+	\item Schwarz inequality: \[
+	\left| \int_a^b f(x)^*g(x) {\rm d}x \right| \leq 
+	\sqrt{\int_a^b |f(x)|^2 {\rm d}x\int_a^b |g(x)|^2 {\rm d}x}
+	\]
+	\item \( \langle g|f \rangle = \langle f|g \rangle^* \)
+	\item normalized \( \langle f|f \rangle = 1 \)
+	\item orthonormal \( \langle f_m|f_n = \delta_{mn}\rangle \)
+	\item complete and orthonormal \( f(x) = \sum_{n=1}^\infty c_nf_n(x),
+	c_n=\langle f_n|f \rangle \)
+\end{itemize}
+
+\section{Observables}
+
+\subsection{Hermitian Operators}
+
+\begin{dfn}
+	Hermitian Operators
+	\[\langle f|\hat{Q}g \rangle =\langle \hat{Q}f|g \rangle \qquad \text{for all f(x) and g(x)} \]
+\end{dfn}
+Discussion:
+\begin{itemize}
+	\item Observables are represented by hermitian operators
+	\item hermitian conjugate \(\hat{Q}^\dag = \hat{Q}\)
+	\item momentum operator is hermitian
+	\[\braket{f}{\hat{p}g}=\int_{-\infty}^\infty f^*(-i\hbar)\dv{g}{x}\dd x = 
+	\eval{-i\hbar f^*g}_{-\infty}^\infty + \int_{-\infty}^\infty \qty(-i\hbar\dv{f}{x})^*g\dd x=
+	\braket{\hat{p}f}{g}\]
+\end{itemize}
+
+\subsection{Determinate State}
+
+\[ \sigma^2 = \left\langle(Q-\langle Q \rangle)^2\right\rangle = 
+\left\langle(\Psi|(\hat{Q}-q)^2\Psi \right\rangle = 
+\left\langle((\hat{Q}-q)\Psi|(\hat{Q}-q)\Psi \right\rangle =0\]
+\[\Downarrow\]
+\[ \hat{Q}\Psi = q\Psi\]
+Discussion:
+\begin{itemize}
+	\item This is eigenvalue equation for \(\hat{Q}\)
+	\item \(\Psi\) if an eigenfuction of \(\hat{Q}\), and \(q\) is the corresponding eigenvalue
+	\item Determinate state of \(Q\) are eigenfuction of \(\hat{Q}\)
+	\item spectrum: the collection of all the eigenvalues of an operator
+	\item degenerate: linearly independent eigenfuctions share the same eigenvalue
+\end{itemize}
+\section{Eigenfuctions of a Hermitain Operator}
+\subsection{Discrete Spectra}
+\begin{itemize}
+	\item the eigenvalues are separated from another
+	\item the eigenfuctions lie in Hilbert space and constitute physically realizable states
+\end{itemize}
+Properties of normalizable eigenfuctions of a hermitian operator:
+\begin{enumerate}
+	\item Their eigenvalues are \emph{real}
+	\item Eigenfuctions belonging to distinct eigenvalues are \emph{orthognal}
+\end{enumerate}
+\subsection{Continuous Spectra}
+\begin{itemize}
+	\item the eigenvalues fill out an entire range
+	\item the eigenfuctions are not normalizable and do not represent possible wave functions
+\end{itemize}
+The eigenfuctions and eigenvalues of the momentum operator (on the interval (\(-\infty < x < \infty\)):
+\[ \begin{split}
+	-i\hbar \dv{x}f_p(x) = pf_p(x) \quad\Rightarrow\quad 
+	f_p(x) = Ae^{ipx/\hbar} \\ \downarrow \\
+	\int_{-\infty}^{\infty}f_{p'}^*(x)f_p(x){\rm d}x = |A|^2 \int_{-\infty}^{\infty}e^{i(p-p')x/\hbar}{\rm d}x=
+	|A|^22\pi\hbar\delta(p-p') \\ \Downarrow \\
+	f_p(x)=\frac{1}{\sqrt{2\pi\hbar}}e^{ipx/\hbar}
+\end{split}
+\]
+\begin{itemize}
+	\item Dirac orthonormality: \(\left\langle f_{p'}|f_p\right\rangle =\delta(p-p')\)
+	\item Complete:\[\begin{split}
+		f(x) = \int_{-\infty}^{\infty} c(p)f_p(x)dp =\frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^\infty c(p)e^{ipx/\hbar}{\rm d}p\\
+		\left\langle f_{p'}|f\right\rangle =\int_{-\infty}^{\infty}c(p)\left\langle f_{p'}|f\right\rangle {\rm d}p =
+		\int_{-\infty}^{\infty}c(p)\delta(p-p'){\rm d}p=c(p')
+	\end{split}\]
+\end{itemize}
+The eigenfuctions and eigenvalues of the positoin operator: 
+\[\begin{split}
+	\hat{x} g_y(x)= g_y{x}  \quad\Rightarrow \quad
+	g_y(x) = A\delta(x-y) \\ \downarrow \\
+	\int_{-\infty}^{\infty}g_{y'}^*g_y(x){\rm d}x = |A|^2 \int_{-\infty}^{\infty}\delta(x-y')\delta(x-y){\rm d}x =
+	|A|^2\delta(y-y')  \\ \Downarrow \\
+	g_y(x) = \delta(x-y)
+\end{split}
+\]
+
+\section{Generalized Statistical Interpretation}
+Observable: \(Q(x,p)\) \newline
+State: \(\Psi(x,t)\) \newline
+One of eigenvalues: \(\hat{Q}(x-i\hbar d/dx)\) \newline
+The probablility of getting eigenvalues(orthonormal):
+\begin{enumerate}
+	\item Discrete spectrum 
+	\begin{itemize}
+		\item probablility of getting \(q_n\) \[
+		|c_n|^2,\qquad\text{where}\quad c_n=\left\langle f_n|\Psi\right\rangle \]
+		\item Complete: \[\begin{split}
+			\Psi(x,t) = \sum_n c_n(t)f_n(x)  \\
+			c_n(t)=\left\langle f_n|\Psi\right\rangle  = \int f_n(x)^*\Psi(x,t){\rm d}x \\
+			\sum_n|c_n|^2=1
+		\end{split}\]
+		\item The expectation value of \(Q\): \[
+		\left\langle Q\right\rangle  = \left\langle \Psi|\hat{Q}\Psi\right\rangle = \sum_n q_n|c_n|^2
+		\]
+	\end{itemize}    
+	\item Continuous spectrum 
+	\begin{itemize}
+		\item probablility of getting a result in the range \(\dd z\) 
+		\[|c(z)|^2{\rm d}z,\qquad\text{where}\quad c(z)=\left\langle f_z|\Psi\right\rangle \]
+		\item For positoin measurements:
+		
+		\[c(y)=\left\langle g_y|\Psi\right\rangle  = \int_{-\infty}^\infty\delta(x-y)\Psi(x,t){\rm d}x = \Psi(y,t)\]
+		\item For momentum measurements:\[
+		c(p) = \left\langle f_p|\Psi\right\rangle =  \frac{1}{\sqrt{2\pi\hbar}}
+		\int_{-\infty}^\infty e^{-ipx/\hbar}\Psi(x,t){\rm d}x\]
+		\item Fourier transformation:\[\begin{aligned}
+			\Phi(p,t) = \frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^\infty e^{-ipx/\hbar}\Psi(x,t){\rm d}x \\
+			\Psi(x,t) = \frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^\infty e^{ipx/\hbar}\Phi(p,t){\rm d}p \\
+		\end{aligned}\]
+		\item Expectation: \begin{equation*}
+			\left\langle Q(x,p,t)\right\rangle = \begin{cases}
+				\int \Psi^*\hat{Q}\left(x,-i\hbar\frac{\partial}{\partial x},t\right)\Psi\,{\rm d}x,\quad \text{in position space}  \\
+				\int \Phi^*\hat{Q}\left(i\hbar\frac{\partial}{\partial p},p,t\right) \Phi \,{\rm d}p,\quad \text{in momentum space}
+			\end{cases}
+		\end{equation*}
+	\end{itemize}
+\end{enumerate}
+
+\section{The Uncertainty Principle}
+\subsection{Proof of the Generalized Uncertainty Principle}
+\[ f\equiv\left(\hat{A}-\langle A\rangle\right)\Psi \quad\rightarrow\quad 
+\sigma_A^2\sigma_B^2=\langle f|f\rangle\langle g|g\rangle\geq|\langle f| g\rangle|^2
+\]
+\[ |z|^2\geq[\Im(z)]^2=\left[\frac{1}{2i}(z-z^*)\right] ^2 \quad\Rightarrow\quad
+\sigma_A^2\sigma_B^2\geq\left(\frac{1}{2i}\left[
+\langle f| g\rangle -\langle g|f \rangle
+\right] \right)^2      
+\]
+\[\langle f| g\rangle - \braket{g}{f}
+=\expval{\hat{A}\hat{B}}-\langle A\rangle\langle B\rangle
+- \qty(\expval{\hat{B}\hat{A}} - \expval{A}\expval{B})=\expval{\qty[\hat{A},\hat{B}]}\]
+\[\Downarrow\]
+$${ \boxed{\sigma_A^2\sigma_B^2\geq \left(\frac{1}{2i}\left\langle \left[\hat{A},\hat{B}\right] \right\rangle \right)^2  } }$$
+
+\subsection{The Minimum-Uncertainty Wave Packet}
+\[\begin{aligned}
+	g(x)=iaf(x),\qquad\text{where} \,a\, \text{is real} \\ \Rightarrow
+	\left(-i\hbar\dv{x}-\langle p\rangle\right) \Psi = ia(x-\langle x\rangle)\Psi \\ \Rightarrow
+	\Psi(x) = Ae^{-a(x-\langle x\rangle)^2/2\hbar}e^{i\langle p\rangle/\hbar}
+\end{aligned}
+\]
+\subsection{The Energy-Time Uncertainty Principle}
+\[\begin{cases}
+	\dv{t}\langle Q\rangle = \dv{t}\left\langle \Psi|\hat{Q}\Psi\right\rangle \\
+	i\hbar\frac{\partial\Psi}{\partial t} = \hat{H}\Psi,\quad\text{where} \qquad H=\frac{p^2}{2m}+V \\
+	\braket{\hat{H}\Phi}{\hat{Q}\Phi} = \braket{\Phi}{\hat{H}\hat{Q}\Phi}
+\end{cases}  \qquad\Rightarrow\]
+$${\boxed{ \dv{t}\langle Q\rangle =\frac{i}{\hbar}\left\langle \left[\hat{H},\hat{Q}\right] \right\rangle+\left\langle \frac{\partial\hat{Q}}{\partial t}\right\rangle    }}$$
+Assume that \(Q\) does not depend explicity on \(t\):
+\[
+\sigma_H^2\sigma_Q^2\geq\left(\frac{1}{2i}\left\langle \qty[\hat{H},\hat{Q}]\right\rangle \right)^2 = \left(\frac{\hbar}{2}\right)^2\left(\frac{d\langle Q\rangle}{dt}\right)^2 
+\]
+$${\begin{aligned}
+		\Delta E\equiv\sigma_H \\
+		\Delta t\equiv\frac{\sigma_Q}{|d\langle Q\rangle/dt|} 
+	\end{aligned} \qquad \Rightarrow \qquad 
+	\Delta \,t\Delta E\geq \frac{\hbar}{2}}$$
+\section{Vectors and Operators}
+\subsection{Bases in Hillbert Space}
+\[\begin{aligned}
+	\Psi(x,t) = \langle x|\mathcal{S}(t)\rangle \\
+	\Phi(p,t) = \langle p|\mathcal{S}(t)\rangle \\
+	c_n(t) = \langle n|\mathcal{S}(t)\rangle \\
+	|\mathcal{S}(t)\rangle \rightarrow &\int\Psi(y,t)\delta(x-y)\,{\rm d}y
+	= \int\Phi(p,t)\frac{1}{\sqrt{2\pi\hbar}}e^{ipx/\hbar}\,{\rm d}p \\
+	= &\sum c_ne^{-iE_nt/\hbar}\psi_n(x)
+\end{aligned}\]
+Operator "Trandform"
+\[\ket{\beta} = \hat{Q}\ket{\alpha}, \quad\text{components}\begin{cases}
+	\ket{\alpha}=\sum_n a_n\ket{e_n} \quad a_n=\braket{e_n}{\alpha} \\
+	\ket{\beta}=\sum_n b_n\ket{e_n} \quad b_n=\braket{e_n}{\beta}
+\end{cases}\]
+\[\usym{27A5} \qquad
+\matrixel{e_m}{\hat{Q}}{e_n}\equiv Q_{mn} \qquad\rightarrow\sum_nb_n\braket{e_m}{e_n} = \sum_n\matrixel{e_m}{\hat{Q}}{e_n}\]
+\[\Rightarrow\qquad b_m=\sum_nQ_{mn}a_n\]
+Schrodinger equation:
+\[
+\begin{aligned}
+	i\hbar\dv{t}|\mathcal{S}(t)\rangle = \hat{H} |\mathcal{S}(t)\rangle,\qquad \text{Time-dependent} \\
+	\hat{H}|s\rangle = E|s\rangle,\qquad\text{Time-independent}
+\end{aligned}       
+\]
+Particular example of vectors:
+\[
+\begin{aligned}
+	\hat{x} \,\text{(the position operator)} \rightarrow \begin{cases}
+		x  &\text{(in positoin space)}\\
+		i\hbar\partial/\partial p  \qquad&\text{(in momentum space)}\\
+	\end{cases} \\
+	\hat{p} \,\text{(the momentum operator)} \rightarrow \begin{cases}
+		-i\hbar\partial/\partial x  &\text{(in positoin space)}\\
+		p  \qquad &\text{(in momentum space)}\\
+	\end{cases}
+\end{aligned}     
+\]
+\subsection{Dirac Notation}
+bra: \(\langle \alpha|\) \newline
+ket: \(|\beta\rangle\)  \newline
+Orthonormal basis (complete):
+\begin{itemize}
+	\item Discrete \[
+	\left\langle e_m|e_n \right\rangle =\delta_{mn} \qquad \rightarrow \qquad \sum_n |e_n\rangle\langle e_n|=1 
+	\]
+	\item Continuous \[
+	\left\langle e_z|e_{z'} \right\rangle =\delta(z-z') \qquad\rightarrow\qquad\int  |e_z\rangle\langle e_{z'}|\,{\rm d}z=1 
+	\]
+\end{itemize}
+Baker-Campbell-Hausdrff formula:
+\[e^{\hat{A}+\hat{B}}=e^{\hat{A}}e^{\hat{B}}e^{-\hat{C}/2},\qquad\text{where}\qquad
+\hat{C}=\left[\hat{A},\hat{B}\right] 
+\]
+\subsection{Changing Bases in Dirac Notation}
+\[\begin{aligned}
+	\text{the positoin eigenstats : } |x\rangle \qquad &1= \int dx\,|x\rangle\langle x| \\
+	&\rightarrow\quad |\mathcal{S}(t)\rangle=\int dx\,|x\rangle\langle x|\mathcal{S}(t)\rangle\equiv\int\Psi(x,t)\,|x\rangle\,{\rm d}x \\
+	\text{the momentum eigenstats : } |p\rangle \qquad &1= \int dp\,|p\rangle\langle p| \\
+	&\rightarrow\quad |\mathcal{S}(t)\rangle=\int dp\,|p\rangle\langle p|\mathcal{S}(t)\rangle\equiv\int\Phi(p,t)\,|p\rangle\,{\rm d}p \\
+	\text{the energy eigenstats : } |n\rangle \qquad &1= \sum |n\rangle\langle n| \\
+	&\rightarrow\quad |\mathcal{S}(t)\rangle=\sum_n\,|n\rangle\langle n|\mathcal{S}(t)\rangle\equiv\sum c_n(t)\,|n\rangle\\
+\end{aligned}\]
+Operators act on kets\[\begin{aligned}
+	&\left\langle x|\hat{x}|\mathcal{S}(t)\right\rangle  = \text{action of position operator in } x \text{ basis} = x\Psi(x,t) \\
+	&\left\langle p|\hat{x}|\mathcal{S}(t)\right\rangle  = \text{action of position operator in } p \text{ basis} = i\hbar\frac{\partial \Phi}{\partial p}
+\end{aligned}\]
+Proof: \[
+\left\langle p|\hat{x}|\mathcal{S}(t)\right\rangle  
+= \left\langle p \left\lvert \hat{x}  \int dx |x\rangle\langle x| \right\rvert\mathcal{S}(t)\right\rangle 
+= \int \langle p|x|x\rangle \langle x|\mathcal{S}(t)\rangle dx = i\hbar\frac{\partial}{\partial p}\langle p|\mathcal{S}(t)\rangle
+\]
+\section{Wave Functions in Position and Momentum Space(Addition)}
+NOTE: \(x\),\(f(x)\),\(p\) are operators, different form all above
+\subsection{Position-Space Wave Function}
+The base ket used are the position kets satisfying
+\[\begin{aligned}
+	& x|x'\rangle = x'|x'\rangle \qquad
+	\left\langle x''|x' \right\rangle = \delta(x''-x')
+\end{aligned}\]
+A physical state can be expanded in terms of \(x'\)
+\[\begin{aligned}
+	|\alpha\rangle=\int dx' |x'\rangle\langle x'|\alpha\rangle \\
+	|\langle x'|\alpha\rangle|^2dx' \qquad\text{probablility} \\
+	\langle x'|\alpha\rangle \equiv \psi_\alpha(x') \qquad\text{wave function}
+\end{aligned}\]
+Using the completness of \(|x'\rangle\), we have\[                                                                      
+\left\langle \beta|\alpha \right\rangle = \int dx'\left\langle \beta|x'\right\rangle\left\langle x'|\alpha\right\rangle  
+= \int dx'\psi^*_\beta(x')\psi^*_\alpha(x')  \] 
+\[\text{ the probablility amplitude for state } |\alpha\rangle \text{ to be found in state }|\beta\rangle\]
+\(f(x)\) is a function of \(x\)
+\[\begin{aligned}
+	&\left\langle x'|f(x)|x''\right\rangle = (\langle x'|)\cdot(f(x'')|x'') = f(x')\delta(x'-x'')\\ 
+	\left\langle \beta|f(x)|\alpha\right\rangle &=\int dx'\int dx'' \left\langle \beta|x'\right\rangle \left\langle x'|f(x)|x''\right\rangle \left\langle x''|\alpha\right\rangle \\
+	&= \int dx'\,\psi_\beta^*(x')f(x')\psi_\alpha(x')
+\end{aligned}\]
+\subsection{Momentum Operator in the Position Basis}
+\[\begin{aligned}
+	p|\alpha\rangle = \int dx'|x'\rangle\left(-i\hbar\frac{\partial}{\partial x'}\langle x'|\alpha \rangle\right) \\
+	\Rightarrow \langle x'|p|\alpha\rangle = -i\hbar\frac{\partial}{\partial x'}\langle x'|\alpha \rangle
+\end{aligned}\]
+Properties:
+\[\begin{aligned}
+	\langle x'|p^n|x''\rangle = (-i\hbar)^n\frac{\partial^n}{\partial x'^n}\delta(x'-x'')   \\
+	\left\langle \beta|p^n |\alpha\right\rangle = \int dx'\,\psi_\beta^*(x')\left((-i\hbar)^n\frac{\partial^n}{\partial x'^n}\right) \psi_\alpha(x')
+\end{aligned}\]
+\subsection{Momentum-Space Wave Function}
+The base eigenkets in the \(p\)-basis specify \[
+p|p'\rangle = p'|p'\rangle\qquad \langle  p'|p''\rangle =\delta(p'-p'')\]
+Same way as \({|x'\rangle}\) 
+\[\begin{aligned}
+	&|\alpha\rangle=\int dp' |p'\rangle\langle p'|\alpha\rangle \\
+	&|\langle p'|\alpha\rangle|^2dp' \qquad\text{probablility} \\
+	&\langle p'|\alpha\rangle \equiv \phi_\alpha(p') \qquad\text{momentum-space wave function}
+\end{aligned}\]
+Transformation function from x to p: \(\langle x'|p'\rangle\)
+\[\begin{aligned}
+	\langle x'|p|p'\rangle = -i\hbar\frac{\partial}{\partial x'}\langle x'|p'\rangle=p'\langle x'|p'\rangle \\
+	\Rightarrow \langle x'|p'\rangle = N\exp\left(\frac{ip'x'}{\hbar}\right) 
+\end{aligned}\]
+Discussion:\begin{itemize}
+	\item the probablility amplitude for \(|p'\rangle\) specified by \(p'\) to be found at positoin \(x'\) 
+	\item the wave function for  \(|p'\rangle\), referred to as the momentum eigenfuction (still in the x-space)
+	\item Nomalization: \(N = \frac{1}{\sqrt{2\pi\hbar}}\)
+\end{itemize}
+Rewrite:\[\begin{cases}
+	\langle x'|\alpha\rangle = \int dp'\langle x'|p'\rangle\langle p'|\alpha\rangle \\
+	\langle p'|\alpha\rangle = \int dx'\langle p'|x'\rangle\langle x'|\alpha\rangle 
+\end{cases} \qquad \Leftrightarrow \qquad 
+\begin{aligned}
+	& \psi_\alpha (x')= \left[\frac{1}{\sqrt{2\pi\hbar}}\right] \int dp'\exp \left(\frac{ip'x'}{\hbar}\right) \phi_\alpha(p')\\
+	& \phi_\alpha (p')= \left[\frac{1}{\sqrt{2\pi\hbar}}\right] \int dx'\exp \left(\frac{-ip'x'}{\hbar}\right) \psi_\alpha(x')
+\end{aligned}\]

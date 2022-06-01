@@ -1,0 +1,79 @@
+\chapter{Symmeties and Conservation Laws}
+
+\section{Introduction}
+what a symmetry is: that the Hamiltonian is unchanged by some transformation, such as a rotation or a translation 
+\subsection{Transformations in Space}
+Translation Operator
+\[\hat{T}(a)\psi(x)=\psi'(x)=\psi(x-a)\]
+Parity Operator
+\[\hat{\Pi}\psi(x)=\psi'(x)=\psi(-x)\]
+\[\hat{\Pi}\psi(x,y,z)=\psi'(x,y,z)=\psi(-x,-y,-z)\]
+\[\hat{\Pi}\psi(r,\theta,\varphi)=\psi'(x,y,z)=\psi(r,\pi-\theta,\phi+\pi)\]
+Rotation Operator (about \(z\) axis through an \(\varphi\))
+\[\hat{R}_z(\varphi)\psi(r,\theta,\phi)=\psi'(r,\theta,\phi)=\psi(r,\theta,\phi-\varphi)\]
+\section{The Translation Operator}
+by Taylor series
+\[\begin{aligned}
+    \hat{T}(a)\psi(x)&=\psi(x-a)=\sum_{n=0}^\infty\frac{1}{n!}(-a)^n\dv[n]{x}\psi(x) \\
+                    &=\sum_{n=0}^\infty\frac{1}{n!}\qty(\frac{-ia}{\hbar}\hat{p})^n\psi(x)
+\end{aligned}\qquad\Rightarrow\]
+“generator” of translations
+\[\boxed{
+    \hat{T}(a)=\exp\qty[-\frac{ia}{\hbar}\hat{p}]
+}\]
+\begin{itemize}
+    \item \(\hat{T}(a)\) is a unitary operator
+    \[\hat{T}(a)^{-1}=\hat{T}(-a)=\hat{T}(a)^\dagger \]
+\end{itemize}
+\subsection{How Operators Transform}
+\[\begin{aligned}
+    \expval{\hat{Q}}{\psi'}&=\expval{\hat{Q}'}{\psi}\\ 
+                         &=\expval{\hat{T}^\dagger\hat{Q}\hat{T}}{\psi}
+\end{aligned}\qquad\Rightarrow\qquad\boxed{
+    \hat{Q}'=\hat{T}^\dagger\hat{Q}\hat{T}
+}\]
+\subsection{Translational Symmetry}
+A system is translationally invariant if the Hamiltonian is unchanged by the transformation, then
+\[\hat{H}'=\hat{T}^\dagger\hat{H}\hat{T}=\hat{H}\quad\Rightarrow\quad\qty[\hat{H},\hat{T}]=0\]
+\begin{enumerate}
+    \item Discrete translation symmetry and Bloch's Theorem
+    \item Continuous translational symmetry and MomentumConservation
+\end{enumerate}
+\section{Conservation Laws}
+\begin{itemize}
+    \item First Definition: \(\expval{Q}\) is independent of time
+    \item Second Definition: The probability of getting any particular value is independent o f time
+\end{itemize}
+\section{Parity}
+\subsection{Parity in One Dimension}
+\begin{itemize}
+    \item \(\hat{\Pi}(a)\) is a unitary operator
+    \[\hat{\Pi}(a)^{-1}=\hat{\Pi}(-a)=\hat{\Pi}(a)^\dagger \]
+    \item \(\hat{\Pi}\) is Hermitian
+\end{itemize}
+Inversion symmetry
+\[\qty[\hat{H},\hat{\Pi}]=0\]
+Parity Conservation
+\[\dv{t}\expval{\Pi}=0\]
+\subsection{Parity in Three Dimensions}
+\subsection{Parity Selection Rules}
+\section{Rotational Symmetry}
+\subsection{Rotations About the $z$ Axis}
+\[\hat{R}_z(\varphi)=\exp[-\frac{i\varphi}{\hbar}\hat{L}_z]\]
+\subsection{Rotations in Three Dimension}
+\[\boxed{
+    \hat{R}_n(\varphi)=\exp[-\frac{i\varphi}{\hbar}\mathbf{n}\cdot\hat{\mathbf{L}}]
+}\]
+\section{Degeneracy}
+\section{Rotational Selection Rules}
+\subsection{Selection Rules for Scalar Operators}
+\subsection{Selection Rules for Vector Operators}
+\section{Translation in Time}
+generator of translations in time
+\[\boxed{
+    \hat{U}(t)=\exp[-\frac{it}{\hbar}\hat{H}]
+}\]
+\subsection{The Heisenberg Picture}
+\subsection{Time-Translation Invaraince}
+Energy Conservation is a consequence of time-translation invaraince
+\[\dv{t}\expval{\hat{H}}=0\]

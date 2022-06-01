@@ -1,0 +1,269 @@
+\chapter{Quantum Mechanics in Three Dimensionss}
+
+\section{The Schroding Equation}
+\subsection{Cartesian Coordinates}
+Laplacian\[\nabla^2\equiv\frac{\partial^2}{\partial x^2}+
+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2}\]
+Schroding's Equation
+\[i\hbar\frac{\partial\Psi}{\partial t} = -\frac{\hbar^2}{2m}\nabla^2\Psi+V\Psi\]
+Canonical commutation relations
+\[\comm{r_i}{p_j} = i\hbar\delta_{ij} \qquad \comm{r_i}{r_j}=\comm{p_i}{p_j}=0\]
+Three-Dimensional of Ehrenfest's theorem
+\[\dv{r}\expval{\mathbf{r}} = \frac{1}{m}\expval{\mathbf{p}},\qquad
+\text{and} \quad \dv{t}\expval{\mathbf{p}}=\expval{-\nabla V}\]
+Heisenberg's uncertainty principle
+\[\sigma_{x,y,z}\sigma_{p_x,p_y,p_z}\geq\hbar/2\]
+\subsection{Spherical Coordinates}
+Time-independent Schrodinger equation
+\[-\frac{\hbar^2}{2m}\left[\frac{1}{r^2}\pdv{r}(r^2\pdv{\psi}{r})+\frac{1}{r^2\sin\theta}\pdv{\theta}(\sin\theta\pdv{\psi}{\theta})+
+\frac{1}{r^2\sin\theta^2}\qty(\pdv[2]{\psi}{\phi})\right] + V\psi=E\psi \]
+\[\Downarrow\]
+\[\psi(r,\theta,\phi)=R(r)Y(\theta,\phi)\qquad\Rightarrow\qquad\begin{aligned}
+       &\frac{1}{R}\dv{r}(r^2\dv{R}{r}) - \frac{2mr^2}{\hbar^2}[V(r) - E] = \ell(\ell+1) \\
+       &\frac{1}{Y}\qty{\frac{1}{\sin\theta}\pdv{\theta}(\sin\theta\pdv{Y}{\theta})+\frac{1}{\sin^2\theta}\pdv[2]{Y}{\phi}} = -\ell(\ell+1)
+\end{aligned}\]
+\subsection{The Angular Equation}
+
+\[Y(\theta,\phi) = \Theta(\theta)\Phi(\phi) \qquad\Rightarrow\qquad
+ \begin{aligned}
+       &\frac{1}{\Theta}\qty[\sin\theta\dv{\theta}(\sin\theta\dv{\Theta}{\theta})] + 
+       \ell(\ell+1)\sin^2\theta = m^2 \\
+       &\frac{1}{\Phi}\dv[2]{\Theta}{\theta} = -m^2
+ \end{aligned}\]
+ Associated Legendre function
+\[P_\ell^m(x) \equiv (-1)^m\qty(1-x^2)^{m/2}\qty(\dv{x})^mP_\ell(x)\]
+Legendre polynomial\[P_\ell(x)\equiv\frac{1}{2^\ell\ell!}\qty(\dv{x})^\ell\qty(x^2-1)^\ell\]
+Spherical harmonics
+$${ \boxed{   Y_\ell^m(\theta,\phi) = \sqrt{ \frac{(2\ell+1)}{4\pi}\frac{(\ell-m)!}{(\ell+m)!} } e^{im\phi}P^m_\ell(\cos\theta) }  }$$
+
+\begin{itemize}
+       \item \(\ell = 0,1,2\cdots\)
+       \item \(m = -\ell,-\ell+1,\cdots,-1,0,1,\cdots,\ell-1,\ell\)
+\end{itemize}
+Nomalization
+\[\int_0^\infty\qty|R|^2r^2\dd r=1\qquad\int_0^\pi\int_0^{2\pi}|Y|^2\sin\theta\dd\theta\dd\phi=1\]
+orthognal
+\[\int_0^\pi\int_0^{2\pi}\qty[Y_\ell^m(\theta,\phi)]^*\qty[Y_{\ell'}^{m'}(\theta,\phi)]\sin\theta\dd\theta\dd\phi=\delta_{\ell\ell'}\delta_{mm'}\]
+\subsection{The Radial Equation}
+\[u(r) \equiv rR(r)\]
+\[\Rightarrow\qquad
+  -\frac{\hbar^2}{2m}\dv[2]{u}{r}+\qty[V+\frac{\hbar^2}{2m}\frac{\ell(\ell+1)}{r^2}]u = Eu\]
+Effective potential
+\[V_{\text{eff}} = V+\frac{\hbar^2}{2m}\frac{\ell(\ell+1)}{r^2}\]
+Nomalization
+\[\int_0^\infty|u|^2\dd r=1\]
+\section{The Hydrogen Atom}
+\[V(r) = -\frac{e^2}{4\pi\epsilon_0}\frac{1}{r}\]
+\subsection{The Radial Wave Function}
+Let \[\kappa\equiv\frac{\sqrt{-2m_eE}}{\hbar}
+\qquad \rho\equiv\kappa r\qquad\rho_0\equiv\frac{m_ee^2}{2\pi\epsilon_0\hbar^2\kappa}\]
+\[\Rightarrow\qquad \dv[2]{u}{\rho} = \qty[1-\frac{\rho_0}{\rho}+\frac{\ell(\ell+1)}{\rho^2}]u\]
+Asymptitic behavior
+\begin{itemize}
+       \item As \(\rho\rightarrow\infty\)  \[u(\rho)\sim Ae^{-\rho}\]
+       \item As \(\rho\rightarrow 0\) \[u(\rho) = C\rho^{\ell+1}\]
+\end{itemize}
+Peel off Asymptitic behavior
+\[u(\rho)=\rho^{\ell+1}e^{\rho}v(\rho) \quad\rightarrow\quad v(\rho) = \sum_{j=0}^\infty c_j\rho^j
+\quad\rightarrow\quad c_{j+1} = \qty{\frac{2(j+\ell+1)-\rho_0}{(j+1)(j+2\ell+2)}}c_j\]
+For large \(j\) 
+\[c_j\approx\frac{2^j}{j!}c_0\]
+Then
+\[v(\rho)=c_0e^{2\rho}\quad\rightarrow\quad u(\rho) = c_0\rho^{\ell+1}e^\rho\]
+The series must terminate
+\[c_{N-1}\neq 0 \quad \text{but}\quad c_N=0\]
+\[\begin{cases}
+       2(N+\ell)-\rho_0 =0\\
+       n\equiv N+\ell
+\end{cases}\Rightarrow\quad\rho_0=2n\qquad\Rightarrow\]
+Bohr formula
+$${\boxed{  E_n=-\qty[\frac{m_e}{2\hbar^2}\qty(\frac{e^2}{4\pi\epsilon_0})^2]\frac{1}{n^2} = \frac{E_1}{n^2} ,\qquad n=1,2,3,\cdots}}$$
+Summary
+\begin{itemize}
+       \item \(n\): principal quantum number
+       \item \(\ell\): azimuthal quantum number
+       \item \(m\): magnetic quantum number
+\end{itemize}
+Ground State
+
+The polynomial \(v(\rho)\)
+\[v(\rho) = L^{2\ell+1}_{n-\ell-1}(2\rho)\]
+\begin{itemize}
+       \item Associated Laguerre polynomial
+       \item \(q\)th Laguerre polynomial
+\end{itemize}
+
+$${\boxed{  
+       \psi_{n\ell m} = 
+       \sqrt{\qty(\frac{2}{na})^3\frac{(n-\ell-1)!}{2n(n+\ell)!}}
+       e^{-r/na} 
+       \qty(\frac{2r}{na})^ \ell
+       \qty[L_{n-\ell-1}^{2\ell+1}(2r/na)] 
+         Y_\ell^m(\theta,\phi) 
+}}$$
+\subsection{The Spectrum of Hydrogen}
+\[E_\gamma = E_i - E_f = -13.6 \mathrm{eV}\qty(\frac{1}{n^2_i}-\frac{1}{n_f^2})\]
+\[\frac{1}{\lambda} = \mathcal{R} \qty(\frac{1}{n^2_f}-\frac{1}{n_i^2})\]
+\section{Angular Momentum}
+\[\mathbf{L} = \mathbf{r}\times\mathbf{p}\]
+\[L_x = yp_z-zp_y,\quad L_y=zp_x-xp_z,\quad L_z = xp_y-yp_x\]
+\subsection{Eigenvalues}
+Fundamental commutation relations for angular momentum
+\[[L_x,L_y] = i\hbar L_z\qquad [L^2,\mathbf{L} ]= 0\qquad 
+\sigma_{L_x}\sigma_{L_y}\geq\frac{\hbar}{2}|\expval{L_z}|\]
+Find simultaneous eigenstates 
+\[L^2f=\lambda f \qquad\text{and}\qquad L_zf=\mu f\]
+Let \[L_\pm\equiv L_x\pm iL_y \qquad\rightarrow\qquad
+\begin{cases}
+       \qty[L_z,L_\pm] = \pm\hbar L_\pm \\
+       \qty[L^2,L_\pm]=0
+\end{cases}\qquad\Rightarrow\]
+\(f\) is an eigenfuction of \(L^2\) and \(L_z\)
+\[\begin{aligned}
+       L^2(L_\pm f) &=L_\pm(L^2 f) = L_{\pm}(\lambda f) \\
+                   & = \lambda(L_\pm f)
+\end{aligned}\]
+\[
+\begin{aligned}
+       L_z(L_\pm f)&=(L_zL_\pm - L_\pm L_z)f + L_\pm L_z f = \pm \hbar L_\pm f+ L_\pm(\mu f) \\
+                   & = (\mu\pm\hbar)(L_{\pm}f)
+\end{aligned}\]
+\begin{itemize}
+       \item top rung\[L_+f_t=0\]
+       \item bottom rung \[L_-f_b=0\]
+       \item compare them 
+       \[\boxed{L^2f_\ell^m=\hbar^2\ell(\ell+1)f_\ell^m\qquad
+        L_zf_\ell^m=\hbar mf_\ell^m}\]
+        where\[\ell = 0,1/2,1,3/2,\cdots; \quad m=-\ell,-\ell+1,\cdots,\ell-1,\ell\]
+\end{itemize}
+\subsection{Eigenfunctions}
+
+\[\mathbf{L} = -i\hbar(\mathbf{r}\times\nabla)\quad\rightarrow\quad
+  \nabla=\hat{r}\pdv{r}+\hat{\theta}\frac{1}{r}\pdv{\theta}+\hat{\phi}\frac{1}{r\sin\theta}\pdv{\phi}\]
+\[\mathbf{L}=-i\hbar\qty(\hat{\phi}\pdv{\theta}-\hat{\theta}\frac{1}{\sin\theta}\pdv{\phi})\]
+\[\Rightarrow\quad\boxed{L_z = -i\hbar\pdv{\phi}}\]
+\[\boxed{L^2 = -\hbar^2\qty[ \frac{1}{\sin\theta}\pdv{\theta}(\sin\theta\pdv{\theta})
+         + \frac{1}{\sin^2\theta}\pdv[2]{\phi} ]}\]
+Conclusion: Spherical harmonics are the eigenfuctions pf \(L^2\) and \(L_z\)
+
+\section{Spin}
+\[ \begin{aligned}
+       S^2\ket{s\,m} &=\hbar^2s(s+1)\ket{s\,m} \\
+       S_z\ket{s\,m} &= \hbar m\ket{s\,m} \\
+       S_\pm\ket{s\,m} & = \hbar\sqrt{s(s+1)-m(m+1)}\ket{s\,(m\pm 1)}
+\end{aligned}\]
+where \[s = 0,\frac{1}{2},2,\frac{3}{2},\cdots\qquad m=-s,-s+1,\cdots,s-1,s\]
+
+\subsection{Spin 1/2}
+for \(s=1/2\), there are two eigenstates
+\begin{itemize}
+       \item spin up (\(\uparrow\)): \(\ket{\frac{1}{2}\,\frac{1}{2}}\)
+       \item spin down (\(\downarrow\)): \(\ket{\frac{1}{2}\,\qty(-\frac{1}{2})}\)
+\end{itemize}
+spinor \[\chi = \mqty(a \\ b) = a\chi_+ +b\chi_- \] 
+\begin{itemize}
+       \item spin up (\(\uparrow\)): \(X_+ = \mqty(1 \\ 0)\)
+       \item spin down (\(\downarrow\)):  \(X_- = \mqty(0 \\ 1)\)
+\end{itemize}
+in Matrix
+\[\begin{cases}
+       \mathsf{S}^2\chi_+=\frac{3}{4}\hbar^2\chi_+ \\
+       \mathsf{S}^2\chi_-=\frac{3}{4}\hbar^2\chi_- 
+\end{cases}\qquad\Rightarrow\qquad\mathsf{S}^2 = \frac{3}{4}\hbar^2\mqty(1 & 0 \\ 0 & 1)\]
+\[\begin{cases}
+       \mathsf{S}_z\chi_+ = \frac{\hbar}{2}\chi_+ \\
+       \mathsf{S}_z\chi_- = -\frac{\hbar}{2}\chi_-
+\end{cases}\qquad\Rightarrow\qquad\mathsf{S}_z = \frac{\hbar}{2}\mqty(1 & 0 \\ 0 & -1)\]
+\[\begin{cases}
+       \mathsf{S}_+\chi_-=\hbar\chi_+ \\
+       \mathsf{S}_-\chi_+=\hbar\chi_- \\
+       \mathsf{S}_+\chi_+=\mathsf{S}_-\chi_-=0
+\end{cases}\qquad\Rightarrow\qquad
+\begin{aligned}
+       \mathsf{S}_+=\hbar\mqty(0 & 1 \\ 0 & 0) \\
+       \mathsf{S}_-=\hbar\mqty(0 & 0 \\ 1 & 0)
+\end{aligned}\qquad\Rightarrow\qquad
+\begin{aligned}
+       \mathsf{S}_x=\hbar/2\mqty(0 & 1 \\ 1 & 0) \\
+       \mathsf{S}_y=\hbar/2\mqty(0 & -i \\ i & 0)
+\end{aligned}\]
+Pauli spin Matrix
+\[\mathbf{S} = \frac{\hbar}{2}\boldsymbol{\sigma}
+\qquad\Rightarrow\qquad
+\boxed{ \sigma_x\equiv\mqty(0 & 1\\ 1 & 0) \qquad 
+\sigma_y\equiv\mqty(0 & -i\\ i & 0) \qquad
+\sigma_z\equiv\mqty(1 & 0\\ 0 & -1)} \]
+\subsection{Electron in a Magnetic Field}
+Hamiltonian matrix for a spinning charged particle, at rest in \(\mathbf{B}\)
+\[\begin{cases}
+       \boldsymbol{\mu}=\gamma\mathbf{S} \\
+       H = -\boldsymbol{\mu}\cdot\mathbf{B} \\
+\end{cases} \quad
+       \Rightarrow\quad\mathsf{H} = -\gamma\mathbf{B}\cdot\mathsf{S}\]
+\begin{itemize}
+       \item \(\boldsymbol{\mu}\): magnetic dipole momentum
+       \item \(\gamma\): gyromagnetic ratio 
+\end{itemize}
+\begin{enumerate}
+       \item Larmor precession:
+       \[\mathbf{B}=B_0\hat{k}\quad\Rightarrow\quad \mathsf{H}=-\gamma B_0\mathsf{S}_z=-\frac{\gamma B_0\hbar}{2}\mqty(1 & 0 \\ 0 & -1)\]
+       \[\Rightarrow\quad\text{eigenstates} \begin{cases}
+              \chi_+,\, \text{with}\, E_=-(\gamma B_0\hbar)/2 \\
+              \chi_-, \text{with}\, E_=+(\gamma B_0\hbar)/2 
+       \end{cases}\]
+       \[i\hbar\pdv{\chi}{t}=\mathsf{H}\chi \qquad\Rightarrow\]
+       \[\chi(t) = a\chi_+e^{-iE_+t/\hbar}+b\chi_-e^{-iE_-t/\hbar}=\mqty(ae^{i\gamma B_0t/2} \\ be^{-i\gamma B_0t/2})\]
+       \[|a|^2+|b|^2=1\quad\Rightarrow\quad
+       \chi(t) = \mqty(\cos(\alpha/2)e^{i\gamma B_0t/2} \\ \sin(\alpha/2)e^{-i\gamma B_0t/2})\]
+       \[\Downarrow\]
+       \[\begin{aligned}
+              &\expval{S_x} = \chi(t)^\dagger \mathsf{S}_x\chi(t) = \frac{\hbar}{2}\sin\alpha\cos(\gamma B_0t) \\
+              &\expval{S_y} = \chi(t)^\dagger \mathsf{S}_y\chi(t) = -\frac{\hbar}{2}\sin\alpha\sin(\gamma B_0t) \\
+              &\expval{S_z} = \chi(t)^\dagger \mathsf{S}_z\chi(t) = \frac{\hbar}{2}\cos\alpha\\
+       \end{aligned}\]
+       Larmor frequency: \[\omega = \gamma B_0\]
+       \item The Stern-Gerlach experiment
+\end{enumerate}
+
+
+\subsection{Addition of Angular Momenta}
+Two Particles
+\[\begin{aligned}
+       S^{(1)^2} \ket{s_1 s_2 m_1 m_2} = s_1(s_1+1)\hbar^2\ket{s_1 s_2 m_1 m_2} \\
+       S^{(2)^2} \ket{s_1 s_2 m_1 m_2} = s_2(s_2+1)\hbar^2\ket{s_1 s_2 m_1 m_2} \\
+       S_z^{(1)}\ket{s_1 s_2 m_1 m_2}=m_1\hbar\ket{s_1 s_2 m_1 m_2} \\
+       S_z^{(2)}\ket{s_1 s_2 m_1 m_2}=m_2\hbar\ket{s_1 s_2 m_1 m_2} \\
+\end{aligned}\]
+totol angular momentum \[\mathbf{S}=\mathbf{S}^{(1)}+\mathbf{S}^{(2)}\]
+\(z\) component \[\begin{aligned}
+       S_z\ket{s_1 s_2 m_1 m_2}&=S_z^{(1)}\ket{s_1 s_2 m_1 m_2}+S_z^{(2)}\ket{s_1 s_2 m_1 m_2} \\
+                            &=\hbar(m_1+m_2)\ket{s_1 s_2 m_1 m_2}=\hbar m\ket{s_1 s_2 m_1 m_2}
+\end{aligned}\Rightarrow\quad m=m_1+m_2\]
+Consider the spin-1/2 Particles
+\[\boxed{\begin{Bmatrix}
+       &\ket{1\,1} & =  &\ket{\uparrow\uparrow} \\
+       &\ket{1\,0} & =  &\frac{1}{\sqrt{2}}(\ket{\uparrow\downarrow}+\ket{\downarrow\uparrow}) \\
+       &\ket{1\,-1} & = &\ket{\downarrow\downarrow} \\ 
+     \end{Bmatrix} \quad s=1\,(\text{triplet})}\]
+\begin{itemize}
+       \item triplet states are eigenvectors of \(S^2\) with eigenvalue \(2\hbar^2\)
+\end{itemize}
+\[\boxed{\begin{Bmatrix}
+       \ket{0\,0}\, = \,\frac{1}{\sqrt{2}}(\ket{\uparrow\downarrow}-\ket{\downarrow\uparrow})
+     \end{Bmatrix} \quad s=0\,(\text{singlet}) }\]
+\begin{itemize}
+       \item singlet state is an eigenvector of \(S^2\) with eigenvalue \(0\)
+\end{itemize}
+
+Clebsch-Gordan coefficients
+\[\ket{s\, m}=\sum_{m_1+m_2=m} C_{m_1m_2m}^{s_1s_2s}\ket{s_1\, s_2\, m_1 \,m_2}\]
+
+\section{Electromagnetic Interactions}
+\subsection{Minimal Coupling}
+
+\[\boxed{i\hbar\pdv{\Psi}{t} = \qty[\frac{1}{2m}(-i\hbar\nabla-q\mathbf{A})^2+q\varphi]\Psi}\]
+\begin{itemize}
+       \item quantum implementation of the Lorentz force law
+       \item minimal coupling rule
+\end{itemize}
+\subsection{The Aharonov-Bohm Effect}

@@ -1,0 +1,88 @@
+\chapter{Quantum Dynamics}
+\section{Two-level System}
+Suppose two states of (unperturbed) System
+\[\hat{H}^0\psi_b=E_a\psi_a\qquad\hat{H}^0\psi_b=E_b\psi_b\]
+\[\braket{\psi_i}{\psi_j}=\delta_{ij},\qquad(i,j=a,b)\]
+\subsection{The Perturbed System}
+\[\Psi(t)=c_a(t)\psi_a{\rm e}^{-iE_at/\hbar}+c_b(t)\psi_b{\rm e}^{-iE_b\hbar}\]
+\[|c_a|^2+|c_b|^2=1\]
+Solve for \(c_a(t)\) and \(c_b(t)\)
+\[\hat{H}\Psi=i\hbar\pdv{\Psi}{t},\quad\text{where}\quad\hat{H}=\hat{H}^0+\hat{H}'(t)\]
+We find 
+\[c_a\qty(\hat{H}\psi_a){\rm e}^{-iE_at/\hbar}+c_b\qty(\hat{H}'\psi_b){\rm e}^{-iE_bt/\hbar}
+  = i\hbar\qty(\dot{c_a}\psi_a{\rm e}^{-iE_at/\hbar}+\dot{c_b}\psi_bt/\hbar)\]
+We define
+\[H_{ij}'\equiv\matrixel{\psi_i}{\hat{H}'}{\psi_j}\qquad\Rightarrow\quad \hat{H}_{ji}'=\qty(H_{ij}')^*\]
+Take the inner product with \(\psi_a\) and \(\psi_b\)
+\[\begin{cases}
+    \dot{c_a}=-\frac{i}{\hbar}\qty[c_a\hat{H}_{aa}'+c_b\hat{H}_{ab}'{\rm e}^{-i(E_b-E_a)t/\hbar}] \\
+    \dot{c_b}=-\frac{i}{\hbar}\qty[c_a\hat{H}_{bb}'+c_b\hat{H}_{ba}'{\rm e}^{i(E_b-E_a)t/\hbar}] \\
+\end{cases}\]
+\[\hat{H}'_{aa}=\hat{H}_{bb}'=0\qquad\Rightarrow\boxed{
+    \begin{aligned}
+        \dot{c_a}=-\frac{i}{\hbar} \hat{H}_{ab}'  {\rm e}^{-i\omega_0t} c_b \\
+        \dot{c_a}=-\frac{i}{\hbar} \hat{H}_{ba}'  {\rm e}^{-i\omega_0t} c_a \\
+    \end{aligned}
+}\quad\omega_0\equiv\frac{E_a-E_b}{\hbar}\]
+\subsection{Time-Dependent Perturbation Theory}
+Suppose the particles states out in the lower state:
+\[c_a(0)=1\qquad c_b(0)=0\]
+Zeroth Order:
+\[c_a^{(0)}(t)=1\qquad c_b^{(0)}(t)=0\]
+First Order:
+\[\begin{aligned}
+    \dv{c_a^{(1)}}{t}=0\Rightarrow& c_a{(1)}(t)=1 \\
+    \dv{c_b^{(1)}}{t}=-\frac{i}{\hbar}\hat{H}_{ba}'  {\rm e}^{-i\omega_0t} \Rightarrow&
+        c_b^{(1)}(t)=-\frac{i}{\hbar}\int_0^t\hat{H}'_{ba}(t'){\rm e}^{i\omega_0t'}\dd t'
+\end{aligned}\]
+\subsection{Sinusoidal Perturbations}
+Suppose
+\[\hat{H}'(\mathbf{r},t)=V(\mathbf{r})\cos(\omega t)\quad
+\Rightarrow\quad\begin{aligned}
+    H'_{ab}=V_{ab}\cos(\omega t) \\
+     V_{ab}\equiv  \matrixel{\psi_a}{V}{\psi_b}
+\end{aligned}\]
+Assume
+\[\omega_0+\omega\gg |\omega_0-\omega|\]
+we have 
+\[\begin{aligned}
+    c_b(t) &\approx c_b^{(1)}(t)=-\frac{iV_{ba}}{2\hbar}\int_0^t\qty[{\rm e}^{i(\omega_0+\omega)t'}+{\rm e}^{i(\omega_0-\omega)t'}]\dd t' \\
+           &=-\frac{V_{ba}}{2\hbar}\qty[ \frac{{\rm e}^{i(\omega_0+\omega)t}-1}{\omega_0+\omega} + \frac{{\rm e}^{i(\omega_0-\omega)t}-1}{\omega_0-\omega}] \\
+           &\approx -\frac{V_{ba}}{2\hbar}\frac{{\rm e}^{i(\omega_0-\omega)t/2}}{\omega_0-\omega}\qty[{\rm e}^{i(\omega_0-\omega)t/2}-{\rm e}^{-i(\omega_0-\omega)t/2}]  \\
+           &=-i\frac{V_{ba}}{\hbar}\frac{\sin\qty[(\omega_0-\omega)t/2]}{\omega_0-\omega}{\rm e}^{i(\omega_0-\omega)t/2}
+\end{aligned}\]
+Transition probability
+\[\boxed{
+    P_{a\rightarrow b}(t)=|c_b(t)|^2\approx
+    \frac{|V_{ba}|^2}{\hbar^2}\frac{\sin^2\qty[(\omega_0-\omega)t/2]}{(\omega_0-\omega)^2}
+}\]
+\section{Emission and Absortion of Radiationj}
+\subsection{Electromagnetic Waves}
+The atom is exposed to a sinusoidally oscillating electric field
+\[\mathbf{E}=E_0\cos(\omega t)\hat{k}\qquad H'=-qE_0z\cos(\omega t)\]
+\[\Rightarrow\quad H_{ba}=-\wp E_0\cos(\omega t),\quad \text{where}\,\wp\equiv q\matrixel{\psi_b}{z}{\psi_a}\]
+in section 11.1.3, with \[V_{ba}=-\wp E_0\]
+\subsection{Absortion, Stimulation Emission, and Spontaneous Emission}
+Absortion (start off in the lower state)
+\[P_{a\rightarrow b}(t)=\qty(\frac{|\wp|E_0}{\hbar})^2\frac{\sin^2[(\omega_0-\omega)t/2]}{(\omega_0-\omega)^2}\]
+\begin{itemize}
+    \item \(c_a(0)=1, c_b(0)=0\)
+    \item the atom absorts energy \(E_b-E_a=\hbar\omega_0\) from the electromagnetic field
+\end{itemize}
+Stimulation Emission (start off in the upper state)
+\[P_{b\rightarrow a}(t)=|c_a(t)|^2=P_{a\rightarrow b}(t)\]
+\begin{itemize}
+    \item \(c_a(0)=0, c_b(0)=1\)
+    \item The electromagnetic field gains energy \(\hbar\omega_0\) form the atom
+\end{itemize}
+Spontaneous Emission
+\begin{itemize}
+    \item An atom in the excited state makes a transition downward, with the release of a photon, but without any applied electromagnetic field to initate the process
+\end{itemize}
+\subsection{Incoherent Perturbations}
+\section{Spontaneous Emission}
+\subsection{Einstein's A and B}
+\subsection{The Life tiem of an Excites State}
+\subsection{Selection Rules}
+\section{Fermi's Golden Rule}
+\section{The Adiabatic Approximation}

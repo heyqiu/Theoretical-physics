@@ -1,0 +1,51 @@
+\chapter{The  Variational Principle}
+\section{Theory}
+Variational principle
+\[\boxed{E_{gs}\leq\expval{H}{\psi}\equiv\expval{H}}\]
+\begin{itemize}
+    \item Pick any normalized function \(\psi\) whatsoever
+    \item \(E_{gs}\): ground state energy
+    \item Proof:
+    \[\psi=\sum_nc_n\psi_n,\qquad\text{with} \,H\psi_n = E_n\psi_n \]
+    \[\begin{aligned}
+        1=\sum_n|c_n|^2 \qquad\expval{H} = \sum_n E_n|c_n|^2 
+    \end{aligned} \]
+    \[\because E_{gs}\leq E_n \qquad \therefore \expval{H}\geq E_{gs}\sum_n|c_n|^2=E_{gs}\]
+\end{itemize}
+Examples:
+\begin{itemize}
+    \item 1-d harmonic oscillator
+    \[\text{"trial wave function"}:\quad \psi(x)=A{\rm e}^{-bx^2} \qquad A=\qty(\frac{2b}{\pi})^{1/4}\]
+    \[\dv{b}\expval{H}=\frac{\hbar^2}{2m}-\frac{m\omega}{8b^2}=0\qquad\Rightarrow b=\frac{m\omega}{2\hbar} \qquad\Rightarrow \expval{H}_{\min}=\frac{1}{2}\hbar\omega\]
+    \item delta function potential
+    \[\text{"trial wave function"}:\quad \psi(x)=A{\rm e}^{-bx^2} \qquad A=\qty(\frac{2b}{\pi})^{1/4}\]
+    \[\dv{b}\expval{H}=\frac{\hbar^2}{2m}-\frac{\alpha}{\sqrt{2\pi b}}=0 
+       \qquad\Rightarrow b=\frac{2m^2\alpha^2}{\pi\hbar^4}
+       \qquad\Rightarrow \expval{H}_{\min}=-\frac{m\alpha^2}{\pi \hbar^2}\]
+\end{itemize}
+\section{The Ground State of Helium}
+\[H=-\frac{\hbar^2}{2m}\qty(\nabla_1^2 + \nabla_2^2)-\frac{e^2}{4\pi\epsilon_0}\qty(\frac{2}{r_1}+\frac{2}{r_2}-\frac{1}{|\mathbf{r}_1 - \mathbf{r}_2|})\]
+The ground state energy measured in  lab:
+\[E_{gs} = -78.975 \, {\rm eV}\qquad\text{experimental}\]
+If ignore \(V_{ee}\)
+\[\psi_0(\mathbf{r}_1,\mathbf{r}_2)\equiv \psi_{100}(\mathbf{r}_1)\psi_{100}(\mathbf{r}_2)=\frac{8}{\pi a^3}{\rm e}^{-2(r_1+r_2)/a} \qquad \text{with} \, 8E_1=-109\,{\rm eV}\]
+\[\Rightarrow \quad H\psi_0=(8E_1+V_{ee})\psi_0\qquad\Rightarrow \quad \expval{H}=8E_1+\expval{V_{ee}} \]
+trial function 
+\[\psi_1(\mathbf{r}_1,\mathbf{r}_2) \equiv \frac{Z^3}{\pi a^3}{\rm e}^{-Z(r_1+r_2)/a}\]
+\begin{itemize}
+    \item \(Z\): effective nuclear charge, variational parameter
+\end{itemize}
+rewrite \(H\)
+\[\begin{aligned}
+    H=&-\frac{\hbar^2}{2m}\qty(\nabla_1^2 + \nabla_2^2)-\frac{e^2}{4\pi\epsilon_0}\qty(\frac{Z}{r_1}+\frac{Z}{r_2}) \\
+    &+\frac{e^2}{4\pi\epsilon_0}\qty(\frac{(Z-2)}{r_1}+\frac{(Z-2)}{r_2}+\frac{1}{|\mathbf{r}_1 - \mathbf{r}_2|}) 
+\end{aligned}\]
+\[\expval{H}=2Z^2E_1+2(Z-2)\qty(\frac{e^2}{4\pi\epsilon_0})\expval{\frac{1}{r}}+\expval{V_{ee}}\]
+\[\expval{\frac{1}{r}}=\frac{Z}{a}\qquad\expval{V_{ee}}=\frac{5Z}{8a}\qty(\frac{e^2}{4\pi\epsilon_0})=-\frac{5Z}{4}E_1\]
+\[\Rightarrow\quad\expval{H}=\qty[-aZ^2+(27/4)Z]E_1\qquad\rightarrow\quad
+  \dv{Z}\expval{H}=0\]
+  \[\Rightarrow\qquad Z=\frac{27}{16}\qquad\expval{H}=\frac{1}{2}\qty(\frac{3}{2})^6E_1=-77.5\,{\rm eV}\]
+\section{The Hydrogen Molecule Ion}
+Hamiltonian \[H=-\frac{\hbar^2}{2m}\nabla^2 - \frac{e^2}{4\pi\epsilon_0}\qty(\frac{1}{r}+\frac{1}{r'})\]
+Trial wave function \[\psi_0(\mathbf{r}) = \frac{1}{\sqrt{\pi a^3}}{\rm e}^{-r/a}\]
+\section{The Hydrogen Molecule}

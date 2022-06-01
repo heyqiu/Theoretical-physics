@@ -1,0 +1,76 @@
+\chapter{Time-Independent Perturbation Theory}
+\section{Nondegenerate Perturbation Theory}
+\subsection{General Formulation}
+Perturbation theory is a systematic procedure for obtaining approximation solutions to the
+perturbed problem, by building on the known exact solutions to the unperturbed theory
+\[H=H^0+\lambda H'\]
+\[\begin{aligned}
+    \psi_n = \psi_n^0 +\lambda\psi_n^1+\lambda^2\psi_n^2+\cdots \\
+    E_n=E_n^0 + \lambda E_n^1 + \lambda^2 E_n^2+\cdots
+\end{aligned}\]
+\begin{itemize}
+    \item \(E_n^1\): first-order correction to the \(n\)th eigenvalue
+    \item \(\psi_n^1\): first-order correction to the \(n\)th eigenfunction
+\end{itemize}
+Plugging into
+\[H\psi_n=E_n\psi\]
+we have
+\begin{itemize}
+    \item to lowest order \((\lambda^0)\) 
+    \[H^0\psi_n^0=E_n^0\psi_n^0\]
+    \item to first order \(\lambda^1\)
+    \[H^0\psi_n^1+H'\psi_n^0 = E_n^0\psi_n^1+ E_n^1\psi_n^0\]
+    \item to second order \(\lambda^2\)
+    \[H^0\psi_n^2+H'\psi_n^1 = E_n^0\psi_n^2 + E_n^1\psi_n^1 + E_n^2\psi_n^0\]
+\end{itemize}
+\subsection{First-Order Theory}
+\[\braket{\psi_n^0}{H^0\psi_n^1}+\braket{\psi_n^0}{H^0\psi_n^0} = E_n^0\braket{\psi_n^0}{\psi_n^1}+E_n^1\braket{\psi_n^0}{\psi_n^0}\]
+\[\Rightarrow\qquad\boxed{ E_n^1 = \expval{H'}{\psi_n^0} }\]
+rewrite first-order wave function
+\[(H^0-E_n^0)\psi_n^1 = -(H'-E_n^1)\psi_n^0 \qquad\leftarrow\qquad \psi_n^1=\sum_{m\neq n}c_m^{(n)}\psi_m^0\]
+Taking the inner product with \(\psi_l^0\)
+
+\[\sum_{m\neq n} (E_m^0-E_n^0)c_m^{(n)}\braket{\psi_l^0}{\psi_m^0}
+   = -\matrixel{\psi_l^0}{H'}{\psi_n^0} + E_n^1\expval{\psi_l^0}{\psi_n^0} \]
+If \(l\neq m\)
+\[\Rightarrow \qquad \boxed{\psi_n^1 = \sum_{m\neq n}\frac{\matrixel{\psi_m^0}{H'}{\psi_n^0}}{E_n^0 - E_m^0 }\psi_m^0 }\]
+\subsection{Second-Order Energies}
+\[\braket{\psi_n^0}{H^0\psi_n^2} + \braket{\psi_n^0}{H'\psi_n^1}=
+  E_n^0\braket{\psi_n^0}{\psi_n^2}+ E_n^1\braket{\psi_n^0}{\psi_n^1} + E_n^2\braket{\psi_n^0}{\psi_n^0}\]
+\[\Rightarrow\qquad E_n^2=\matrixel{\psi_n^0}{H'}{\psi_n^1}=\sum_{m\neq n}\frac{\matrixel{\psi_m^0}{H'}{\psi_n^0}\matrixel{\psi_n^0}{H'}{\psi_m^0}}{E_n^0-E_m^0}\]
+\[\Rightarrow\qquad\boxed{ E_n^2 = \sum_{m\neq n} \frac{|\matrixel{\psi_m^0}{H'}{\psi_n^0} |^2}{E_n^0 - E_m^0}}\]
+\section{Degenerate Perturbation Theory}
+\subsection{Two-Fold Degeneracy}
+Suppose that 
+\[H^0\psi_a^0=E^0\psi_a^0,\qquad H^0\psi_b^0=E^0\psi_b^0,\qquad \braket{\psi_a^0}{\psi_b^0}=0\]
+Note that 
+\[\psi_0=\alpha\psi_a^0+\beta\psi_b^0,\qquad H^0\psi^0=E^0\psi^0\]
+
+The fundamental result of degenerate perturbation theory
+\[\boxed{
+    E_{\pm}^1=\frac{1}{2}\qty[W_{aa}+W_{bb}\pm\sqrt{(W_{aa}-W_{bb})^2+4|W_{ab|^2}}]
+}\]
+\subsection{"Good" States}
+Theorem: Let \(A\) be a hermitian operator that commutes with \(H^0\) and \(H'\). If \(\psi_a^0\) and 
+\(\psi_b^0\) (the degenerate eigenfunction of \(H^0\)) are also eigenfunctions of \(A\), with distinct eigenvalues,
+\[A\psi_a^0=\mu\psi_a^0,\quad A\psi_a^0=\mu\nu_a^0, \quad\text{and }\,\mu\neq\nu\]
+then \(\psi_a^0\) and \(\psi_b^0\) are the "good" states to use in perturbation theory.\newline
+Proof:
+\subsection{Higher-Order Degeneracy}
+\section{The Fine Structure of Hydrogen}
+\subsection{The Relativistic Correction}
+\[\begin{aligned}
+    T=\frac{mc^2}{\sqrt{1-(v/c)^2}}-mc^2 \\
+    p=\frac{mv}{\sqrt{1-(v/c)^1}}
+\end{aligned}\quad\Rightarrow \]
+expanding in powers of small number \((p/mc)\)
+\[\begin{aligned}
+    T=& \sqrt{p^2c^2+m^2c^4}-mc^2 \\
+    =& mc^2\qty[\sqrt{1+\qty(\frac{p}{mc})^2}-1]=mc^2\qty[1+\frac{1}{2}\qty(\frac{p}{mc})^2-\frac{1}{8}\qty(\frac{p}{mc})^4\cdots -1]\\
+    =& \frac{p^2}{2m}-\frac{p^4}{8m^3c^2}+\cdots
+\end{aligned}\]
+\[\begin{aligned}
+    E_r^1 = \expval{H_r'}=-
+\end{aligned}\]
+\section{The Zeeman Effect}
+\section{Hyperfine Splitting in Hydrogen}

@@ -1,0 +1,109 @@
+\chapter{Identical Particles}
+
+\section{Two-Particle System}
+\begin{itemize}
+	\item \(\Psi(\mathbf{r}_1,\mathbf{r}_2,t)\)
+	\item \(\displaystyle{ i\hbar\pdv{\Psi}{t}=\hat{H}\Psi,\qquad\text{where} \quad \hat{H}=-\frac{\hbar^2}{2m_1}\nabla_1^2-\frac{\hbar^2}{2m_2}\nabla_2^2+V(\mathbf{r}_1,\mathbf{r}_2,t) }\)
+	\item \(\displaystyle{  \int |\Psi(\mathbf{r}_1,\mathbf{r}_2,t)|^2 
+		\dd^3\mathbf{r}_1 \dd^3\mathbf{r}_2= 1 }\)
+	\item \(\Psi(\mathbf{r}_1,\mathbf{r}_2,t)=\psi(\mathbf{r}_1,\mathbf{r}_2)e^{-iEt/\hbar}\)
+	\item \(\displaystyle{  -\frac{\hbar^2}{2m_1}\nabla_1^2\psi -\frac{\hbar^2}{2m_2}\nabla_2^2\psi+V\psi=E\psi }\)
+\end{itemize}
+\begin{enumerate}
+	\item Nointeracting Particles
+	\[\Psi(\mathbf{r}_1,\mathbf{r}_2,t) = \Psi_a(\mathbf{r}_1,t) + \Psi_a(\mathbf{r}_2,t)\]
+    \item Central potential (helium atom)
+	   \[V(\mathbf{r}_1,\mathbf{r}_2)=\frac{1}{4\pi\epsilon_0}
+	     \qty(-\frac{2e^2}{|\mathbf{r}_1|}-\frac{2e^2}{|\mathbf{r}_2|}+\frac{e^2}{|\mathbf{r}_1-\mathbf{r}_2|})\]
+\end{enumerate}
+\subsection{Bosons and Fermions}
+\begin{enumerate}
+	\item Bosons state
+	\[\psi_+(\mathbf{r}_1,\mathbf{r}_2)=A[\psi_a(\mathbf{r}_1)\psi_b(\mathbf{r}_2 )
+	                                       +\psi_b(\mathbf{r}_1)\psi_a(\mathbf{r}_2) ]\qquad A=\frac{1}{\sqrt{2}}\]
+	\begin{itemize}
+		\item symmetric under interchange: \(\psi_+(\mathbf{r}_1,\mathbf{r}_2)=\psi_+(\mathbf{r}_2,\mathbf{r}_1)\)
+        \item all particles with integer spin are bosons
+	\end{itemize}								   
+    \item Fermions state
+    \[\psi_-(\mathbf{r}_1,\mathbf{r}_2)=A[\psi_a(\mathbf{r}_1)\psi_b(\mathbf{r}_2 )
+	                                       -\psi_b(\mathbf{r}_1)\psi_a(\mathbf{r}_2 )]\qquad A=\frac{1}{\sqrt{2}}\]
+	\begin{itemize}
+        \item symmetric under interchange: \(\psi_-(\mathbf{r}_1,\mathbf{r}_2)=-\psi_-(\mathbf{r}_2,\mathbf{r}_1)\)
+		\item all particles with half integer spin are fermions
+  \item Pauli exclusion principle: two identical fermions cannot occupy the same state
+  \[\psi_-(\mathbf{r}_1,\mathbf{r}_2)=A[\psi_a(\mathbf{r}_1)\psi_a(\mathbf{r}_2 )
+	                                       -\psi_a(\mathbf{r}_1)\psi_a(\mathbf{r}_2 )]=0\]
+	\end{itemize}	
+\end{enumerate}
+\subsection{Exchange Forces}
+Suppose \(\psi(x_1,x_2)=\psi_a(x_1)\psi_b(x_2)\)\newline
+calculate \(\expval{(x_1-x_2)^2} = \expval{x_1^2}+\expval{x_2^2}-2\expval{x_1x_2}\)
+\begin{enumerate}
+	\item Distinguishable particles \newline
+         \[ \expval{(x_1-x_2)^2}_d = \expval{x^2}_a+ \expval{x^2}_b+  2\expval{x}_a \expval{x}_b\]
+ \item Identical particles
+        \[\expval{x_1^2}=\expval{x_2^2}=\frac{1}{2}\qty(\expval{x^2}_a+\expval{x^2}_b)\]
+		\[\expval{x_1x_2} = \expval{x}_a\expval{x}_b\pm |\expval{x}_{ab}|^2\]
+		 where \[\expval{x}_{ab}\equiv\int x\psi_a(x)^*\psi_b(x)\dd x\]
+		 thus \[\expval{(x_1-x_2)^2}_{\pm} = \expval{x^2}_a+\expval{x^2}_b +2\expval{x}_a\expval{x}_b \mp 2|\expval{x}_{ab}|^2\]
+\end{enumerate}
+\[\Rightarrow\qquad\expval{(\Delta x )^2}_\pm =\expval{(\Delta )^2}_d\mp 2|\expval{x}_{ab}|^2 \]
+Exchange force: (if \(\expval{x}_{ab}\neq 0\))
+\begin{itemize}
+	\item force of attraction between identical bosons
+ \item force of repulsion between identical fermions
+\end{itemize}
+\subsection{Spin}
+Pauli principle: two electrons in a given position state as long as their spins are in the singlet configuration
+\[\psi(\mathbf{r}_1,\mathbf{r}_2)\chi(1,2)=-\psi(\mathbf{r}_2,\mathbf{r}_1)\chi(2,1)\]
+
+\subsection{Generlized Symmetrization Principle}
+general statement, if you have n identical particles
+\[\ket{(1,2,\cdots,i,\cdots,j,\cdots,n)} = \pm \ket{(1,2,\cdots,j,\cdots,i,\cdots,n)}\]
+\section{Atoms}
+\[\hat{H}=\sum_{j=1}^Z\qty{ - \frac{\hbar^2}{2m}\nabla^2_j - 
+                \qty(\frac{1}{4\pi\epsilon_0})\frac{Ze^2}{r_j}} 
+				   + \frac{1}{2}\qty(\frac{1}{4\pi\epsilon_0})\sum_{j\neq k}^Z\frac{e^2}{|\mathbf{r}_j - \mathbf{r}_j|}\]
+\begin{itemize}
+	\item \(Z\): atomic number
+ \item \(Ze\): electric charge
+ \item in curly brackets: kinetic plus potential energy of the \(j\)th electron
+ \item the second sum: the potential energy associated with the mutual repulsion of the electrons
+\end{itemize}
+\subsection{Helium}
+\[\hat{H}=\qty{ - \frac{\hbar^2}{2m}\nabla^2_1 - 
+                \qty(\frac{1}{4\pi\epsilon_0})\frac{2e^2}{r_1}} + \qty{ - \frac{\hbar^2}{2m}\nabla^2_2 - 
+                \qty(\frac{1}{4\pi\epsilon_0})\frac{2e^2}{r_2}} 
+				   + \frac{1}{4\pi\epsilon_0} \frac{e^2}{|\mathbf{r}_1 - \mathbf{r}_2|}\]
+ignore the last term 
+\[\psi(\mathbf{r}_1,\mathbf{r}_2)=\psi_{n\ell m}(\mathbf{r}_1)\psi_{n'\ell' m'}(\mathbf{r}_2)\qquad\text{with}\quad E=4(E_n+E_{n'})\]
+ground state
+\[\psi_0(\mathbf{r}_1,\mathbf{r}_2)=\psi_{100}(\mathbf{r}_1)\psi_{100}(\mathbf{r}_2)=\frac{8}{\pi a^3}{\rm e}^{-2(r_1+r_2)/a}
+\qquad\text{with}\quad E=8(-13.6\,{\rm eV})=-109\,{\rm eV}\]
+\begin{itemize}
+	\item symmetric function
+ \item singlet
+\end{itemize}
+\subsection{The Periodic Table}
+Hund's rules
+
+\[^{2S+1}L_J\]
+\section{Solids}
+
+\subsection{The Free Elctron Gas}
+Suppose
+\[V(x,y,z) = \begin{cases}
+	0 ,\qquad & 0<x<l_x,0<y<l_y,0<z<l_z\\
+	\infty & otherwise
+\end{cases}\] 
+Wave functions are 
+\[\psi_{n_x,n_y,n_z} = \sqrt{\frac{8}{l_xl_yl_z}}\sin\qty(\frac{n_x\pi}{l_x}x)\sin\qty(\frac{n_y\pi}{l_y}y)\sin\qty(\frac{n_z\pi}{l_z}z)\]
+energies are 
+\[E_{n_x,n_y,n_z} =\frac{\hbar^2\pi^2}{2m}\qty(\frac{n_x^2}{l_x^2} + \frac{n_y^2}{l_y^2} + \frac{n_z^2}{l_z^2})=\frac{\hbar^2k^2}{2m}\qquad \mathbf{k}\equiv(k_x,k_y,k_z)\]
+
+\subsection{Band Structure}
+Bloch's therem 
+ \[V(x+a)=V(x) \qquad\rightarrow\qquad \psi(x+a)={\rm e}^{iqa}\psi(x)\]
+Dirac comb
+\[V(x) = \alpha\sum_{j=0}^{N-1}\delta(x-ja) \]
